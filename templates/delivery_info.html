@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Delivery Information{% endblock %}
+{% block content %}
+<div class="form-container">
+<h2 class="d-heading">Delivery Information for {{ book.title }}</h2>
+
+<div id="message-container">
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+<form class="d-info-form" method="POST" action="{% url 'order_now' book.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- This will render the fields from your form -->
+    <button class="submit-btn" type="submit">Submit Delivery Info and Order</button>
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} 
+Online BookStore 
+{% endblock %} 
+{% block content %}
+
+<div class="main-content">
+    <h1 class="b-heading">
+        Unlock a world of stories and <br> knowledge at our bookstore <br> where every book
+        finds its reader
+    </h1>
+    <img src="{% static 'images/mainimage.jpeg' %}" alt="Main page image" class="main-image" />
+</div>
+
+<!-- Technical Books Section -->
+<div class="tech-section">
+   <h1>Technical Books</h1>
+</div>
+
+<ul class="book-list">
+  {% for book in technical_books %}
+  <li class="book-item">
+    <div>
+      {% if book.photo %}
+      <img src="{{ book.photo.url }}" alt="{{ book.title }} image" class="book-image" />
+      {% else %}
+      <span>No image available</span>
+      {% endif %}
+    </div>
+
+    <div>
+      <span class="book-title">{{ book.title }}</span>
+    </div>
+
+    <div>
+      <span class="book-author">{{ book.author }}</span>
+    </div>
+
+    <div>
+      <span class="book-label">Price:</span>
+      <span>{{ book.price }}</span>
+    </div>
+
+    <div>
+      <a href="{% url 'book_detail' book.id %}">View Details</a>
+    </div>
+  </li>
+  {% empty %}
+  <p>No Technical books available at the moment.</p>
+  {% endfor %}
+</ul>
+
+<!-- Motivational Books Section -->
+<div class="tech-section">
+   <h1>Motivational Books</h1>
+</div>
+
+<ul class="book-list">
+  {% for book in motivational_books %}
+  <li class="book-item">
+    <div>
+      {% if book.photo %}
+      <img src="{{ book.photo.url }}" alt="{{ book.title }} image" class="book-image" />
+      {% else %}
+      <span>No image available</span>
+      {% endif %}
+    </div>
+
+    <div>
+      <span class="book-title">{{ book.title }}</span>
+    </div>
+
+    <div>
+      <span class="book-author">{{ book.author }}</span>
+    </div>
+
+    <div>
+      <span class="book-label">Price:</span>
+      <span>{{ book.price }}</span>
+    </div>
+
+    <div>
+      <a href="{% url 'book_detail' book.id %}">View Details</a>
+    </div>
+  </li>
+  {% empty %}
+  <p>No Motivational books available at the moment.</p>
+  {% endfor %}
+</ul>
+
+{% endblock %}
+
+
+
+
+<!-- 
+<div class="tech-section">
+  <h1> Modivational Books Section</h1>
+</div>
+
+<ul class="book-list">
+ {% for book in books %}
+ <li class="book-item">
+   <div>
+     <span class="book-label"></span>
+     {% if book.photo %}
+     <img
+       src="{{ book.photo.url }}"
+       alt="{{ book.title }} image"
+       class="book-image"
+     />
+     {% else %}
+     <span>No image available</span>
+     {% endif %}
+   </div>
+
+   <div>
+     <span class="book-label"></span>
+     <span class="book-title">{{ book.title }}</span>
+   </div>
+
+   
+   <div>
+       <span class="book-label"></span>
+       <span>{{ book.author }}</span>
+     </div>
+ 
+
+
+
+   <div>
+     <span class="book-label">price:</span>
+     <span>{{ book.price }}</span>
+   </div>
+
+
+   <div>
+     <a href="{% url 'book_detail' book.id %}">View Details</a>
+   </div>
+ </li>
+ {% empty %}
+ <p>No books available at the moment.</p>
+ {% endfor %}
+</ul>
+ -->
+
+
+
+

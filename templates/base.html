@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Bookstore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <header class="heading">
+        <h1 class="h-logo">Bookstore</h1>
+        <div class="search-container">
+            <input class="n-search" type="search" placeholder="Search..." name="name">
+            <button class="search-button">
+                <i class="fa fa-search search-icon" aria-hidden="true"></i>
+            </button>
+        </div>
+           <!-- Cart Icon with Cart Count -->
+        <div class="cart-container">
+            <i class="fa fa-shopping-cart cart-icon" aria-hidden="true"></i>
+            <span class="cart-count">{{ cart_items_count }}</span> <!-- Display cart count here -->
+        </div>
+    </header>
+
+    <div class="h-container">
+        <h1 class="n-heading">Shop by Categories...</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'book_list' %}">Home</a></li>
+                <li><a href="{% url 'book_list' %}">Books</a></li>
+                <li><a href="{% url 'book_list' %}">Categories</a></li>
+                {% if user.is_authenticated %}
+                <li>
+                    <form class="fform" method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button class="l-btn" type="submit">Logout</button>
+                    </form>
+                </li>
+                {% else %}
+                <li><a class="login-btn" href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>   
+    </div>
+    
+    {% block content %} {% endblock %}
+
+<!-- footer section -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Online Bookstore. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

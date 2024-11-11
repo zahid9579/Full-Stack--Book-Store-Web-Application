@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Book Detail - {{ book.title }}{% endblock %}
+{% block content %}
+
+<div class="book-container">
+    <!-- Messages Section -->
+    <div id="message-container">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <div class="book-container-left">
+        <img class="b-img" src="{{ book.photo.url }}" alt="{{ book.title }} image" />
+        
+        <div class="button-container"> <!-- Button container for actions -->
+
+            <!-- Add to Cart Form -->
+            <form method="POST" action="{% url 'add_to_cart' book.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn">ADD TO CART</button>
+            </form>
+
+            <!-- Buy Now Button Form -->
+            {% if book.id in ordered_books %}
+                <!-- If the book is already ordered, show the cancel button -->
+                <form method="POST" action="{% url 'cancel_item' book.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="c-btn">CANCEL NOW</button>
+                </form>
+            {% else %}
+                <!-- Otherwise, show the buy now button -->
+                <form method="POST" action="{% url 'order_now' book.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">BUY NOW</button>
+                </form>
+            {% endif %}
+
+        </div>
+    </div>
+
+    <div class="book-container-right">
+        <h1 class="b-title">{{ book.title }}</h1>
+        <p class="b-author">{{ book.author }}</p>
+        <p>
+            <span class="b-price-label">Price:</span>
+            <span class="b-price">${{ book.price }}</span>
+        </p>
+        <p>
+            <span class="b-price-label">Description:</span>
+            <span class="b-desc">{{ book.description }}</span>
+        </p>
+    </div>
+</div>
+
+<!-- Delivery Info Form -->
+{% if form %}
+<div class="delivery-info-container">
+    <h2>Delivery Information</h2>
+    <form method="POST" action="{% url 'order_now' book.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Render form fields for delivery info -->
+        <button type="submit">Submit Delivery Info and Order</button>
+    </form>
+</div>
+{% endif %}
+
+<script>
+    // Automatically dismiss messages after 10 seconds
+    setTimeout(() => {
+        const messages = document.querySelectorAll('#message-container .messages li');
+        messages.forEach(msg => {
+            msg.style.opacity = '0'; // Fade out
+            setTimeout(() => msg.remove(), 500); // Remove after fade-out
+        });
+    }, 1000); // Dismiss after 10 seconds
+</script>
+
+{% endblock %}

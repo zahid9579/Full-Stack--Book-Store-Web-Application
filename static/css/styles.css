@@ -1,0 +1,878 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Header Styles */
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+}
+
+.h-logo {
+    font-size: 30px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+.search-container {
+    display: flex;
+    align-items: center; /* Ensure vertical alignment for both input and button */
+}
+
+.n-search {
+    flex: 2;
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px 0 0 8px;
+    font-size: 16px;
+    height: 40px; /* Set height to match the button */
+    box-sizing: border-box; /* Ensure padding doesn't increase height */
+}
+
+.search-button {
+    background-color: #2c3e50;
+    border: 1px solid #2c3e50;
+    border-left: none;
+    border-radius: 1px 8px 8px 1px;
+    cursor: pointer;
+    margin-bottom: 17px;
+    padding: 0 15px; /* Adjust horizontal padding for better look */
+    display: flex;
+    align-items: center; /* Center the icon vertically */
+    justify-content: center;
+    height: 40px; /* Match height with input field */
+}
+
+.search-button i {
+    color: #fff;
+    font-size: 18px;
+    
+}
+
+.cart-icon {
+    font-size: 30px;
+    color: #2c3e50;
+    margin-left: 20px;
+}
+
+
+.cart-container {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 12px;
+    min-width: 20px;
+    text-align: center;
+}
+
+
+
+
+/* Navigation Styles */
+.h-container {
+    background-color: #1d3b52;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.n-heading {
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Use gap for consistent spacing between items */
+}
+
+nav li {
+    display: flex; /* Ensures items align properly */
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    padding: 8px 12px; /* Padding for better clickability */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle hover effect */
+}
+
+nav .l-btn {
+    background-color: #e74c3c; /* Red for logout button */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.login-btn {
+    background-color: #3498db; /* Blue for login button */
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px; /* Rounded corners */
+    font-weight: 500;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 750px) {
+    .heading {
+        flex-direction: column;
+        align-items: flex-start; /* Align to start for better mobile layout */
+    }
+
+    .h-logo {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .search-container {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .cart-icon {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .h-logo {
+        font-size: 20px;
+    }
+
+    .search {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .search-button {
+        padding: 6px;
+    }
+
+    .cart-icon {
+        font-size: 24px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav li {
+        margin-bottom: 10px; /* Space between items */
+    }
+}
+
+
+/*  Both nav bar completed here */
+/* Main content styling */
+.main-content {
+    display: flex;                
+    align-items: center;         
+    justify-content: space-between; 
+    margin: 20px;               
+    padding: 20px;              
+    background-color: #f9f9f9;  
+    border-radius: 10px;        
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.b-heading {
+    flex: 1;                    
+    font-size: 38px;           
+    font-weight: 600;          
+    color: #2c3e50;            
+    margin-right: 10px;        
+    margin-left: 25px;         
+}
+
+.main-image {
+    max-width: 325px;          
+    height: auto;                      
+    border-radius: 10px;       
+}
+
+@media screen and (max-width: 750px) {
+    .main-content {
+        flex-direction: column; 
+        align-items: center;    
+    }
+
+    .b-heading {
+        margin-right: 0;       
+        margin-left: 0;        
+        text-align: center;     
+        font-size: 24px;        
+        padding: 0 15px;       
+    }
+
+    .main-image {
+        max-width: 100%;       
+        margin-top: 20px;      
+        margin-left: 0;        
+    }
+}
+/*Header ends here */
+
+
+/* Categories wise books style starts*/
+.tech-section{
+    width: 450px;
+    text-align: center;
+    margin: 10px auto;
+    font-weight: 600;
+    color: #e74c3c;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+
+.book-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+    list-style: none;
+    gap: 10px;
+}
+
+.book-item {
+    width: 300px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-author {
+    font-size: 14px;
+}
+
+.book-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.book-label {
+    font-weight: 600;
+    color: #333;
+}
+
+.book-title {
+    font-weight: bold;
+    color: #333; 
+}
+
+
+.book-image {
+    width: 150px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.book-item div {
+    margin-bottom: 10px;
+}
+
+.book-item a {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.book-item a:hover {
+    background-color: #0056b3;
+}
+
+@media screen and (max-width: 768px) {
+    .book-list {
+        justify-content: center;
+    }
+
+    .book-item {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 20px;
+    }
+
+    .tech-section {
+        width: 100%;
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 15px;
+        font-weight: 600;
+        background-color: #f9f9f9;
+        text-align: center;
+    }
+}
+
+/* Container for the book details */
+.book-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 1 part for left, 2 parts for right */
+    gap: 40px; /* Space between left and right sections */
+    margin-top: 40px;
+    padding: 20px;
+}
+
+/* Left section for the image and buttons */
+.book-container-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+.b-img {
+    max-width: 300px; /* Set maximum width for the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 20px; /* Space below the image */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+/* Styling for buttons */
+/* Left section for the image and buttons */
+.book-container-left {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+/* New class for button container */
+.button-container {
+    display: flex; /* Use flexbox to display buttons in a row */
+    justify-content: center; /* Center buttons horizontally */
+    gap: 10px; /* Space between buttons */
+    margin-top: 10px; /* Space above the button container */
+}
+
+/* Styling for buttons */
+.btn {
+    width: 180px; /* Width of the buttons */
+    padding: 12px; /* Padding inside buttons */
+    font-weight: 600; /* Font weight */
+    border-radius: 12px; /* Rounded corners */
+    background-color: #4CAF50; /* Background color */
+    color: white; /* Text color */
+    text-align: center; /* Center text inside buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    border: none; /* No border */
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+
+/* Styling for buttons */
+.c-btn {
+    width: 180px; /* Width of the buttons */
+    padding: 12px; /* Padding inside buttons */
+    font-weight: 600; /* Font weight */
+    border-radius: 12px; /* Rounded corners */
+    background-color: red; /* Background color */
+    color: white; /* Text color */
+    text-align: center; /* Center text inside buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    border: none; /* No border */
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+.btn:hover {
+    background-color: #45a049; /* Darker background on hover */
+}
+
+/* Right section for title, author, and description */
+.book-container-right {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+.b-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.b-author {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.b-price-label {
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.b-price {
+    color: #E74C3C;
+    font-size: 22px;
+}
+
+.b-desc {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+
+
+.back-btn:hover {
+    background-color: #2980B9;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .book-container {
+        grid-template-columns: 1fr; /* Stack sections in one column on small screens */
+    }
+
+    .book-container-left,
+    .book-container-right {
+        text-align: center; /* Center text in smaller screens */
+    }
+}
+
+
+/* Footer section */
+.footer {
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 20px 0;
+    margin-top: 5px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-links {
+    margin: 10px 0;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #1abc9c;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 16px;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #1abc9c;
+}
+
+
+
+/* Message display styling starts */
+
+#message-container {
+    position: fixed;          /* Fixes the position relative to the viewport */
+    bottom: 20px;            /* Space from the bottom */
+    right: 20px;             /* Space from the right */
+    z-index: 1000;           /* Ensures the messages are above other elements */
+    max-width: 90%;          /* Limits the width to 90% of the viewport */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow effect */
+}
+
+#message-container .success,
+#message-container .error {
+    padding: 10px;
+    border-radius: 5px;      /* Optional: rounded corners */
+    margin-bottom: 10px;      /* Space between messages */
+    font-size: 16px;         /* Base font size */
+}
+
+/* Styles for success messages */
+#message-container .success {
+    color: green;
+    background-color: #d4edda; /* Optional: light green background */
+}
+
+/* Styles for error messages */
+#message-container .error {
+    color: red;
+    background-color: #f8d7da; /* Optional: light red background */
+}
+
+/* Media query for smaller devices */
+@media (max-width: 600px) {
+    #message-container {
+        right: 10px;          /* Less space from the right on small devices */
+        bottom: 10px;         /* Less space from the bottom on small devices */
+    }
+
+    #message-container .success,
+    #message-container .error {
+        font-size: 14px;      /* Slightly smaller font size for better readability */
+    }
+}
+
+/* Authentication style starts*/
+
+/* LOGIN FORM */
+
+/* Style the main login form container */
+.login-form {
+    width: 400px;
+    margin: 50px auto;  /* Centering the form */
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+/* Style for the form heading */
+.auth-heading {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Style the form elements like inputs */
+.login-form form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Style the login button */
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Style the paragraph and the register link */
+.register-text {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.register-text a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* REGISTRATION FORM */
+/* Main container for the registration form */
+.registration-form {
+    width: 30%;
+    margin: 0 auto; /* Center horizontally */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    transition: width 0.3s ease; /* Smooth transition for width changes */
+}
+
+/* Styling the heading */
+.auth-heading {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Aligning form elements properly */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group {
+    width: 100%; /* Ensure all form inputs take full width */
+}
+
+.form-group p {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align form labels and inputs */
+    width: 100%; /* Ensure inputs take full width of form */
+    margin-bottom: 10px;
+}
+
+/* Styling the form fields */
+form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Button styling */
+button.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Optional: Centering the button */
+button {
+    margin-top: 15px;
+}
+
+/* Responsive Design */
+
+/* Tablets and smaller screens */
+@media (max-width: 1024px) {
+    .registration-form {
+        width: 50%;
+    }
+}
+
+/* Mobile devices (phones) */
+@media (max-width: 768px) {
+    .registration-form {
+        width: 70%;
+    }
+
+    .auth-heading {
+        font-size: 24px;
+    }
+
+    form input {
+        font-size: 16px;
+    }
+}
+
+/* Small mobile devices (small phones) */
+@media (max-width: 480px) {
+    .registration-form {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .auth-heading {
+        font-size: 22px;
+    }
+
+    button.btn-primary {
+        font-size: 14px;
+    }
+}
+
+
+
+
+/* Delivery information */
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif; /* Base font for the page */
+    line-height: 1.6; /* Improved line height for readability */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-color: #f4f4f4; /* Light background color */
+}
+
+/* Container for the Form */
+.form-container {
+    max-width: 600px; /* Maximum width of the form container */
+    margin: 20px auto; /* Center the container */
+    padding: 20px; /* Padding inside the container */
+    background-color: white; /* White background for the container */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Heading Styles */
+.d-heading {
+    color: #333; /* Dark color for heading */
+    margin-bottom: 20px; /* Space below heading */
+    font-size: 28px; /* Size of heading */
+    text-align: center; /* Center the heading */
+}
+
+/* Message Container Styles */
+#message-container {
+    margin-bottom: 20px; /* Space below message container */
+}
+
+.messages {
+    list-style: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+}
+
+.messages li {
+    padding: 10px; /* Padding around each message */
+    margin-bottom: 10px; /* Space between messages */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.success {
+    background-color: #d4edda; /* Light green for success messages */
+    color: #155724; /* Dark green text for success */
+}
+
+.error {
+    background-color: #f8d7da; /* Light red for error messages */
+    color: #721c24; /* Dark red text for error */
+}
+
+/* Form Styles */
+.d-info-form {
+    display: flex; /* Flexbox for responsive layout */
+    flex-direction: column; /* Column layout for form elements */
+}
+
+/* Input and Textarea Styles */
+.d-info-form input,
+.d-info-form select,
+.d-info-form textarea {
+    margin-bottom: 15px; /* Space between inputs */
+    padding: 10px; /* Padding inside inputs */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size for inputs */
+}
+
+/* Submit Button Styles */
+.submit-btn {
+    background-color: #007bff; /* Primary color for button */
+    color: white; /* White text */
+    padding: 10px 15px; /* Padding for button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+    font-size: 16px; /* Font size for button */
+}
+
+.submit-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Add padding on smaller screens */
+    }
+
+    .form-container {
+        padding: 15px; /* Reduce padding for form container */
+    }
+
+    .d-heading {
+        font-size: 24px; /* Adjust heading size */
+    }
+}
+
+@media (max-width: 480px) {
+    .d-heading {
+        font-size: 20px; /* Further adjust heading size */
+    }
+
+    .messages li {
+        font-size: 14px; /* Smaller font for messages */
+    }
+
+    .submit-btn {
+        padding: 12px; /* Increase padding for easier tapping */
+    }
+}
